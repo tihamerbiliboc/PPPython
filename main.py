@@ -1,14 +1,33 @@
 import prime_generator
 import timeit
-
-
+import multiprocessing
+import time
+from joblib import Parallel, delayed
 
 if __name__ == '__main__':
+    min_value = 1
+    max_value = 10000000
+    
     start = timeit.default_timer()
-    print(prime_generator.generate_primes(10, 1000000))
+    prime_generator.generate_primes_sequential(min_value, max_value)
     stop = timeit.default_timer()
     execution_time = stop - start
     print("Program Executed in " + str(execution_time) + "  seconds")
+
+    start = timeit.default_timer()
+    prime_generator.generate_primes_multiprocessing(min_value, max_value)
+    stop = timeit.default_timer()
+    execution_time = stop - start
+    print("Program Executed in " + str(execution_time) + "  seconds")
+
+    start = timeit.default_timer()
+    prime_generator.generate_primes_joblib(min_value, max_value)
+    stop = timeit.default_timer()
+    execution_time = stop - start
+    print("Program Executed in " + str(execution_time) + "  seconds")
+
+    k = input()
+    
 
 
 
