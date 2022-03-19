@@ -1,5 +1,6 @@
 import tkinter as tk
 import prime_generator as pg
+import asyncio
 
 window = tk.Tk()
 window.title("Prime Generator")
@@ -15,9 +16,8 @@ frame = tk.LabelFrame(window, text="Result")
 scroll=tk.Scrollbar(frame)
 scroll.pack(side=tk.RIGHT, fill=tk.Y)
 primesText = tk.Text(frame, width=35, height=10,wrap=tk.WORD,yscrollcommand=scroll.set)
-
 def on_click_generate_primes():
-    primesText.insert(tk.END,str(pg.generate_primes(int(min_prime_entry.get()),int(max_prime_entry.get()))))
+    primesText.insert(tk.END,str(pg.generate_primes_multiprocessing(int(min_prime_entry.get()),int(max_prime_entry.get()))))
 
 generate_button = tk.Button(window, text="Generate Prime Numbers", command=on_click_generate_primes).pack()
 frame.pack()

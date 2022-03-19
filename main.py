@@ -7,7 +7,7 @@ import gui_prime
 
 if __name__ == '__main__':
     min_value = 1
-    max_value = 10000000
+    max_value = 100
     
     start = timeit.default_timer()
     prime_generator.generate_primes_sequential(min_value, max_value)
