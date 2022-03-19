@@ -3,6 +3,7 @@ import timeit
 import multiprocessing
 import time
 from joblib import Parallel, delayed
+import gui_prime
 
 if __name__ == '__main__':
     min_value = 1
@@ -25,6 +26,8 @@ if __name__ == '__main__':
     stop = timeit.default_timer()
     execution_time = stop - start
     print("Program Executed in " + str(execution_time) + "  seconds")
+    
+    gui_prime.window.mainloop()
 
     k = input()
     
