@@ -1,3 +1,5 @@
+import asyncio
+
 import prime_generator
 import timeit
 import multiprocessing
@@ -26,10 +28,11 @@ if __name__ == '__main__':
     stop = timeit.default_timer()
     execution_time = stop - start
     print("Program Executed in " + str(execution_time) + "  seconds")
-    
-    gui_prime.window.mainloop()
 
-    k = input()
+
+    # k = input()
+
+    gui_prime.main(asyncio.get_event_loop())
     
 
 
